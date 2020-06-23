@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "keepinvtoggle.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "server": [
+    "PlayerEntity_KeepInventoryToggleMixin",
+    "ServerPlayerEntity_KeepInventoryToggleMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

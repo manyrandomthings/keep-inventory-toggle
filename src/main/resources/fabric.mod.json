@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "keep-inventory-toggle",
+  "version": "${version}",
+  "name": "Keep Inventory Toggle",
+  "description": "Makes keep inventory toggleable",
+  "authors": [
+    "manyrandomthings"
+  ],
+  "contact": {
+    "homepage": "https://github.com/manyrandomthings/keep-inventory-toggle",
+    "sources": "https://github.com/manyrandomthings/keep-inventory-toggle"
+  },
+  "license": "GNU LGPL V3",
+  "environment": "server",
+  "entrypoints": {
+    "server": [
+      "keepinvtoggle.KeepInvToggle"
+    ]
+  },
+  "mixins": [
+    {
+      "config": "keep-inventory-toggle.mixins.json",
+      "environment": "server"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "fabric": "*",
+    "minecraft": "1.16.x"
+  }
+}
