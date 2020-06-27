@@ -22,9 +22,6 @@ public abstract class ServerPlayerEntity_KeepInventoryToggleMixin extends Player
 
     @Redirect(method = "copyFrom", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
     private boolean spawnWhitelistCheck(GameRules gamerules, GameRules.Key<GameRules.BooleanRule> gameruleType) {
-        if(KeepInventoryWhitelist.contains(this.getGameProfile())) {
-            return true;
-        }
-        return gamerules.getBoolean(gameruleType);
+        return gamerules.getBoolean(gameruleType) || KeepInventoryWhitelist.contains(this.getGameProfile());
     }
 }

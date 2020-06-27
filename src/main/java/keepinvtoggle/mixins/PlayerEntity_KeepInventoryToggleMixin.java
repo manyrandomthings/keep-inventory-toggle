@@ -19,9 +19,11 @@ public abstract class PlayerEntity_KeepInventoryToggleMixin extends LivingEntity
 
     @Redirect(method = "dropInventory", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
     private boolean deathWhitelistCheck(GameRules gamerules, GameRules.Key<GameRules.BooleanRule> gameruleType) {
-        if(KeepInventoryWhitelist.contains(((PlayerEntity) (Object) this).getGameProfile())) {
-            return true;
-        }
-        return gamerules.getBoolean(gameruleType);
+        return gamerules.getBoolean(gameruleType) || KeepInventoryWhitelist.contains(((PlayerEntity) (Object) this).getGameProfile());
+    }
+
+    @Redirect(method = "getCurrentExperience", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
+    private boolean experienceDropCheck(GameRules gamerules, GameRules.Key<GameRules.BooleanRule> gameruleType) {
+        return gamerules.getBoolean(gameruleType) || KeepInventoryWhitelist.contains(((PlayerEntity) (Object) this).getGameProfile());
     }
 }
