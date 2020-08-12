@@ -16,8 +16,8 @@ import net.minecraft.world.World;
 @Mixin(ServerPlayerEntity.class)
 public abstract class ServerPlayerEntity_KeepInventoryToggleMixin extends PlayerEntity {
 
-    public ServerPlayerEntity_KeepInventoryToggleMixin(World world, BlockPos blockPos, GameProfile gameProfile) {
-        super(world, blockPos, gameProfile);
+    public ServerPlayerEntity_KeepInventoryToggleMixin(World world, BlockPos blockPos, float yaw, GameProfile gameProfile) {
+        super(world, blockPos, yaw, gameProfile);
     }
 
     @Redirect(method = "copyFrom", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/GameRules;getBoolean(Lnet/minecraft/world/GameRules$Key;)Z"))
