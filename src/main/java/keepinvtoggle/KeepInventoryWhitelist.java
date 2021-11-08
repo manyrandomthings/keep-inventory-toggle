@@ -11,7 +11,7 @@ import net.minecraft.server.Whitelist;
 import net.minecraft.server.WhitelistEntry;
 
 public class KeepInventoryWhitelist {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private static final Logger LOGGER = LogManager.getLogger("keep-inventory-toggle");
     private static Whitelist keepInventoryWhitelist;
 
     // create and load whitelist
